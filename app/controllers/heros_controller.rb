@@ -1,4 +1,4 @@
-class HeroesController < ApplicationController
+class HerosController < ApplicationController
 
   rescue_from ActiveRecord::RecordNotFound, with: :render_not_found_response
       #GET/heroes
@@ -8,7 +8,7 @@ class HeroesController < ApplicationController
 
       #GET/heroes/:id
       def show
-          hero = Hero.find(params[:id])
+          hero = Hero.find_by(params[:id])
               render json: hero, include: :powers
       end
 
